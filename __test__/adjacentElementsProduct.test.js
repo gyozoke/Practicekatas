@@ -13,11 +13,9 @@ solution(inputArray) = 21.
 
 Tests
 - Should return a number
-- Should return zero if input array is empty
-- Should return zero if input array has only 1 index
-- Should return zero if input array has 2 elements but one of the is 0;
-- Should return multiple of indexes if array has 2 elements and both elements are greater than 0
+- should return null if input array contains less than 2 elements
 - Should return multiple of two adjacent elements if array has more than 2 indexes
+- Should not mutate input array
 */
 
 describe("adjacentElementsProduct", () => {
@@ -27,37 +25,19 @@ describe("adjacentElementsProduct", () => {
     //assert
     expect(typeof result === "number").toBe(true);
   });
-  test("Should return zero if input array is empty", () => {
+  test("should return null if input array contains less than 2 elements", () => {
     //arrange
-    const input = [];
+    const input = [2];
     const expectedOutput = 0;
     //act
     const result = adjacentElementsProduct(input);
     //assert
     expect(result).toBe(expectedOutput);
   });
-  test("Should return zero if inpit array has only 1 index", () => {
+  test("Should return multiple of two adjacent elements if array has more than 2 indexes", () => {
     //arrange
-    const input = [5];
-    const expectedOutput = 0;
-    //act
-    const resilt = adjacentElementsProduct(input);
-    //assert
-    expect(resilt).toBe(expectedOutput);
-  });
-  test("Should return zero if index array has 2 elements but one of the is 0", () => {
-    //arrange
-    const input = [5, 0];
-    const expectedOutput = 0;
-    //act
-    const result = adjacentElementsProduct(input);
-    //assert
-    expect(result).toBe(expectedOutput);
-  });
-  test("Should return multiple of indexes if array has 2 elements and both elements are greater than 0", () => {
-    //arrange
-    const input = [5, 5];
-    const expectedOutput = 25;
+    const input = [1, 7, 5, 5];
+    const expectedOutput = 35;
     //act
     const result = adjacentElementsProduct(input);
     //assert
